@@ -10,5 +10,11 @@
 \usepackage{listings}
 
 \renewcommand{\baselinestretch}{1.1}
-\setlength{\parskip}{1em}
 
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{empty}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother

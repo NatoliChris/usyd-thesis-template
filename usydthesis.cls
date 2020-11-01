@@ -22,12 +22,21 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{usydthesis}[The University of Sydney Thesis Template]
 
-% Options
+% ------------ Documentclass options [things in squares] -------------- %
+
+% titlecap: use if you want capitalized title on your page.
 \DeclareOption{titlecap}{\let\@titlecap\iftrue}
+
+% ispdf: if you're looking for digital submission, it's a pdf - else
+%        the margins are set for printing.
+\DeclareOption{ispdf}{\let\@ispdf\iftrue}
+
 \ProcessOptions
 
+% ---------------- Original template and definitions ------------------ %
+
 % Load the original template, which is report for thesis
-\LoadClass[10pt]{report}
+\LoadClass[10pt]{book}
 
 % Options for the thesis
 \newcommand*{\statement}[1]{\gdef\@statement{#1} }
@@ -35,21 +44,42 @@
 \newcommand*{\faculty}[1]{\gdef\@faculty{#1} }
 \newcommand*{\dedication}[1]{\gdef\@dedication{#1} }
 
-% Standard packages
-\RequirePackage[a4paper]{geometry}
+% ------------------- Standard Packages to Use ----------------------- %
+
+% Check if it's for a pdf (digital) - don't have binding offsets
+\ifx\@ispdf\undefined
+    \RequirePackage[a4paper]{geometry}
+\else
+    \RequirePackage[a4paper, twoside]{geometry}
+    \geometry{bindingoffset=1.25cm}
+\fi
+
+
 \RequirePackage{graphicx}
 \RequirePackage[table]{xcolor}
 \RequirePackage{datetime}
 \RequirePackage{appendix}
-\usepackage[colorlinks=true,breaklinks=true]{hyperref}
+\RequirePackage{hyperref}
+
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    %linktocpage=true, % uncomment if you want just the page number linked
+    breaklinks=true
+}
+
 \RequirePackage{url}
 \RequirePackage{datetime}
 \RequirePackage{afterpage}
+\RequirePackage{fancyhdr}
 
 % Tables
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
+
+
+% -------------------------- Definitions --------------------------- %
 
 % New ``Blank Page''
 \newcommand\blankpage{%
@@ -65,10 +95,40 @@
     \RequirePackage{bold-extra}
 \fi
 
+% Table of contents, etc - add empty page style
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+
+
+% ------------------------ Header and Footer ----------------------- %
+
+% Headers and footers
+\fancypagestyle{fancybook}{%
+    \fancyhf{}% Reset the headers and the footers
+    \cfoot{}
+
+    \renewcommand*{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter: ##1}{} }%
+    \renewcommand*{\sectionmark}[1]{ \markright{\thesection\ ##1} }%
+
+    \fancyhead[RO,LE]{\bf \thepage}
+    \fancyhead[RE]{\leftmark}
+    \fancyhead[LO]{\rightmark}
+
+    % \renewcommand*{\sectionmark}[1]{ \markright{\thesection\ ##1} }%
+    % \renewcommand*{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter: ##1}{} }%
+
+    % Increase the length of the header such that the folios
+    % (typography jargon for page numbers) move into the margin
+    % Put some space and a vertical bar between the folio and the rest of the header
+    % \fancyhead[LE]{\thepage\hskip3mm\vrule\hskip3mm\leftmark}%
+    % \fancyhead[RO]{\rightmark\hskip3mm\vrule\hskip3mm\thepage}%
+    \cfoot{}
+}
+
 
 % USYD Title Page
 \renewcommand*{\maketitle}{%
     \thispagestyle{empty}
+    \pagenumbering{gobble}
     \begin{center}
         {\huge\bfseries\boldmath
         \ifx\@titlecap\undefined
@@ -100,6 +160,7 @@
         }
     \end{center}
     \newpage
+    \pagenumbering{roman}
 }
 
 \newcommand*{\makededication}{%
