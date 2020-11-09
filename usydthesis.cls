@@ -36,7 +36,7 @@
 % ---------------- Original template and definitions ------------------ %
 
 % Load the original template, which is report for thesis
-\LoadClass[10pt]{book}
+\LoadClass[11pt]{book}
 
 % Options for the thesis
 \newcommand*{\statement}[1]{\gdef\@statement{#1} }
@@ -56,17 +56,28 @@
 
 
 \RequirePackage{graphicx}
-\RequirePackage[table]{xcolor}
+\RequirePackage[table,dvipsnames]{xcolor}
 \RequirePackage{datetime}
 \RequirePackage{appendix}
-\RequirePackage{hyperref}
+\RequirePackage[pdftex]{hyperref}
 
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
     %linktocpage=true, % uncomment if you want just the page number linked
-    breaklinks=true
+    breaklinks=true,
+    urlcolor=cyan,
+    citecolor=magenta,
 }
+
+\AtBeginDocument{
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfsubject={PhD Thesis},
+}
+}
+
 
 \RequirePackage{url}
 \RequirePackage{datetime}
@@ -113,14 +124,6 @@
     \fancyhead[RE]{\leftmark}
     \fancyhead[LO]{\rightmark}
 
-    % \renewcommand*{\sectionmark}[1]{ \markright{\thesection\ ##1} }%
-    % \renewcommand*{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter: ##1}{} }%
-
-    % Increase the length of the header such that the folios
-    % (typography jargon for page numbers) move into the margin
-    % Put some space and a vertical bar between the folio and the rest of the header
-    % \fancyhead[LE]{\thepage\hskip3mm\vrule\hskip3mm\leftmark}%
-    % \fancyhead[RO]{\rightmark\hskip3mm\vrule\hskip3mm\thepage}%
     \cfoot{}
 }
 
