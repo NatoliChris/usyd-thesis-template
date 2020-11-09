@@ -60,25 +60,6 @@
 \RequirePackage{datetime}
 \RequirePackage{appendix}
 \RequirePackage[pdftex]{hyperref}
-
-\hypersetup{
-    colorlinks=true, %set true if you want colored links
-    linktoc=all,     %set to all if you want both sections and subsections linked
-    %linktocpage=true, % uncomment if you want just the page number linked
-    breaklinks=true,
-    urlcolor=cyan,
-    citecolor=magenta,
-}
-
-\AtBeginDocument{
-\hypersetup{
-  pdftitle={\@title},
-  pdfauthor={\@author},
-  pdfsubject={PhD Thesis},
-}
-}
-
-
 \RequirePackage{url}
 \RequirePackage{datetime}
 \RequirePackage{afterpage}
@@ -89,6 +70,24 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    %linktocpage=true, % uncomment if you want just the page number linked
+    breaklinks=true,
+    urlcolor=cyan,
+    citecolor=magenta,
+}
+
+% ----------------------- Setting up PDF info ------------------------- %
+
+\AtBeginDocument{
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfsubject={PhD Thesis},
+}
+}
 
 % -------------------------- Definitions --------------------------- %
 
@@ -117,7 +116,9 @@
     \fancyhf{}% Reset the headers and the footers
     \cfoot{}
 
+    % Left header: Page number, section
     \renewcommand*{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter: ##1}{} }%
+    % Right header: Page number, chapter
     \renewcommand*{\sectionmark}[1]{ \markright{\thesection\ ##1} }%
 
     \fancyhead[RO,LE]{\bf \thepage}
