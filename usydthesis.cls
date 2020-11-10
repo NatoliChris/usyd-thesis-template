@@ -168,7 +168,7 @@
 }
 
 \newcommand*{\makededication}{%
-    \ifx\@dedication\undefined
+  \ifx\@dedication\undefined
     \else
         \thispagestyle{empty}
         \newpage
@@ -180,6 +180,6 @@
         \end{center}
         \vfill
         \hspace{0pt}
+        \blankpage
     \fi
-    \blankpage
 }
