@@ -36,7 +36,7 @@
 % ---------------- Original template and definitions ------------------ %
 
 % Load the original template, which is report for thesis
-\LoadClass[11pt]{book}
+\LoadClass[11pt, a4paper]{book}
 
 % Options for the thesis
 \newcommand*{\statement}[1]{\gdef\@statement{#1} }
@@ -48,10 +48,10 @@
 
 % Check if it's for a pdf (digital) - don't have binding offsets
 \ifx\@ispdf\undefined
-    \RequirePackage[a4paper]{geometry}
+  \RequirePackage[a4paper, bottom=1.1in]{geometry}
 \else
-    \RequirePackage[a4paper, twoside]{geometry}
-    \geometry{bindingoffset=1.25cm}
+  \RequirePackage[a4paper, twoside,margin=1.0in,top=1.2in,bottom=1.1in]{geometry}
+  \geometry{bindingoffset=0cm}
 \fi
 
 
@@ -60,15 +60,6 @@
 \RequirePackage{datetime}
 \RequirePackage{appendix}
 \RequirePackage[pdftex]{hyperref}
-\RequirePackage{url}
-\RequirePackage{datetime}
-\RequirePackage{afterpage}
-\RequirePackage{fancyhdr}
-
-% Tables
-\RequirePackage{tabularx}
-\RequirePackage{booktabs}
-\RequirePackage{multirow}
 
 \hypersetup{
     colorlinks=true, %set true if you want colored links
@@ -79,8 +70,6 @@
     citecolor=magenta,
 }
 
-% ----------------------- Setting up PDF info ------------------------- %
-
 \AtBeginDocument{
 \hypersetup{
   pdftitle={\@title},
@@ -88,6 +77,18 @@
   pdfsubject={PhD Thesis},
 }
 }
+
+
+\RequirePackage{url}
+\RequirePackage{datetime}
+\RequirePackage{afterpage}
+\RequirePackage{fancyhdr}
+
+% Tables
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+
 
 % -------------------------- Definitions --------------------------- %
 
@@ -116,9 +117,7 @@
     \fancyhf{}% Reset the headers and the footers
     \cfoot{}
 
-    % Left header: Page number, section
     \renewcommand*{\chaptermark}[1]{ \markboth{\chaptername\ \thechapter: ##1}{} }%
-    % Right header: Page number, chapter
     \renewcommand*{\sectionmark}[1]{ \markright{\thesection\ ##1} }%
 
     \fancyhead[RO,LE]{\bf \thepage}
@@ -139,7 +138,7 @@
         \else
             \scshape
         \fi
-        \@title}\\
+        \@title\par}
         \vspace{0.3\textheight}
         {\Large\bfseries
         \@author
@@ -151,7 +150,7 @@
             \else
                 \@statement
             \fi
-        }\\
+        \par}
         \vspace{\fill}
         {
             \@school\\\vspace{0.3cm}
@@ -168,7 +167,7 @@
 }
 
 \newcommand*{\makededication}{%
-  \ifx\@dedication\undefined
+    \ifx\@dedication\undefined
     \else
         \thispagestyle{empty}
         \newpage
@@ -180,6 +179,6 @@
         \end{center}
         \vfill
         \hspace{0pt}
-        \blankpage
     \fi
+    \blankpage
 }
