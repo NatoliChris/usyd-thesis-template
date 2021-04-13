@@ -9,7 +9,12 @@
 % Standard things
 \usepackage{listings}
 
-\renewcommand{\baselinestretch}{1.1}
+
+% Referencing
+\usepackage[sorting = none, backend = bibtex]{biblatex}
+\addbibresource{references.bib}
+
+\renewcommand{\baselinestretch}{1.2}
 
 \makeatletter
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
