@@ -1,6 +1,10 @@
 % Sydney University Thesis Template
 % Author: Christopher Natoli
 %
+% @Greets
+% I wish you the best in your endeavours, and I hope this saves you from many
+% headaches. Have a coffee for me when you're writing, and good luck!
+%
 % This package provides the style and functionality for the PhD Thesis under
 % appropriate policies for 2020.
 % Please note, there are changes (such as Logo, required headings) that may
