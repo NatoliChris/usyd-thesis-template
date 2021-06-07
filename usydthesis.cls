@@ -1,14 +1,13 @@
 % Sydney University Thesis Template
 % Author: Christopher Natoli
-%
-% @Greets
-% I wish you the best in your endeavours, and I hope this saves you from many
-% headaches. Have a coffee for me when you're writing, and good luck!
+% --------------------------
 %
 % This package provides the style and functionality for the PhD Thesis under
 % appropriate policies for 2020.
 % Please note, there are changes (such as Logo, required headings) that may
 % have changed, and so must be altered.
+% YOU MUST CHECK COMPLIANCE WITH Sydney University Thesis Guidelines that are
+% updated almost yearly.
 %
 % This is free software: you can redistribute it and/or modify it under the
 % terms of the GNU Lesser General Public License as published by the Free
@@ -62,7 +61,7 @@
 \RequirePackage{graphicx}
 \RequirePackage[table,dvipsnames]{xcolor}
 \RequirePackage{datetime}
-\RequirePackage{appendix}
+\RequirePackage[titletoc]{appendix}
 \RequirePackage[pdftex]{hyperref}
 
 \hypersetup{
@@ -72,7 +71,11 @@
     breaklinks=true,
     urlcolor=cyan,
     citecolor=magenta,
+%    filecolor=black,
+%    anchorcolor=black
+%   linkcolor=black
 }
+
 
 \AtBeginDocument{
 \hypersetup{
@@ -90,8 +93,22 @@
 
 % Tables
 \RequirePackage{tabularx}
+\RequirePackage{array}
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
+
+% Math
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{latexsym}
+
+% Figures and floats
+\RequirePackage{subfig}
+% Rotating Pages
+\RequirePackage{afterpage}
+\RequirePackage{rotating}
 
 
 % -------------------------- Definitions --------------------------- %

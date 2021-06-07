@@ -8,7 +8,9 @@
 
 % Standard things
 \usepackage{listings}
-
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{tikz}
 
 % Referencing
 \usepackage[sorting = none, backend = bibtex]{biblatex}
@@ -23,3 +25,19 @@
                     \@afterindentfalse
                     \secdef\@chapter\@schapter}
 \makeatother
+
+
+% Glossary
+\usepackage[acronym,toc]{glossaries}
+\usepackage{glossaries-extra}
+% Use this if the hyperlink colour is annoying
+% \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
+\makeglossaries
+
+% Algorithms
+\usepackage{algorithmicx}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+
+
+
