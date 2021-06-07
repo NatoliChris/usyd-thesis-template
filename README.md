@@ -2,6 +2,9 @@
 
 This is a template / example for the University of Sydney PhD Thesis submission.
 
+This is an unofficial template, and is my interpretation of given guidelines at the time of writing.
+I will not endorse, nor fully maintain this template so use at your own discretion. :)
+
 We currently will comply with the 2020 Submission policy listed [ https://www.sydney.edu.au/students/prepare-thesis.html ](https://www.sydney.edu.au/students/prepare-thesis.html).
 
 
@@ -26,6 +29,9 @@ The options are:
 
 We left a LOT of options to be added in the preamble, please modify to suite!
 
+You can also import your own packages and change things around.
+
 ### TL;DR
 
 Use the example, should be good! :) 
+GL HF

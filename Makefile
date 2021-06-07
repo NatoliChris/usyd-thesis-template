@@ -11,6 +11,6 @@ watch:
 	find . -iname "*.tex" -o -iname "*.bib" | entr make
 
 clean:
-	rm -f *.aux *.log *.out *.toc *.lot *.lof *.bbl *.blg *.xml *-blx.bib
+	rm -f *.aux *.log *.out *.toc *.lot *.lof *.bbl *.blg *.xml *-blx.bib *.cn *.acr *.alg *.glg *.gls *.ist *.acn *.glo
 
 .PHONY: pdf all clean
