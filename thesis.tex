@@ -35,6 +35,13 @@ This is to certify that to the best of my knowledge, the content of this thesis 
 % MUST COMPLY WITH: https://www.sydney.edu.au/students/prepare-thesis.html
 %
 
+The results presented in this dissertation were published in the following publications and can be found in the relevant chapters:
+
+\begin{enumerate}[label=(\arabic*)]
+  % Chapter 3 - Something
+  \item Chapter~\ref{ch:intro} contains information from~\cite{Nakamoto08-Bitcoin}.
+\end{enumerate}
+
 \newpage
 
 \makededication
@@ -79,6 +86,13 @@ Hello, world.
 \thispagestyle{fancybook}
 
 \chapter{Introduction}
+% Alternative reference, make the entire reference ``Chapter 1'' rather than
+% just the number 1
+% {
+% \makeatletter\def\@currentlabel{Chapter 1}\makeatother
+% \label{chap:intro}
+% }
+\label{ch:intro}
 
 Hello, world~\cite{Nakamoto08-Bitcoin}.
 

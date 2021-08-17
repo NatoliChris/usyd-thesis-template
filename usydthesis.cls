@@ -57,6 +57,11 @@
   \geometry{bindingoffset=0cm}
 \fi
 
+% Fix some fonts
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage[T1]{fontenc}
+
 
 \RequirePackage{graphicx}
 \RequirePackage[table,dvipsnames]{xcolor}
